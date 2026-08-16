@@ -4,14 +4,14 @@
   --ink: #1a1d22;
   --muted: #5a6270;
   --quiet: #8b93a0;
-  --accent: #3370ff;
-  --accent-hover: #245bdb;
+  --accent: #4c8bf5;
+  --accent-hover: #3b78e0;
   --soft: #f3f3f3;
   --card: #f6f7f9;
   --line: #dce3ec;
-  --max: 1040px;
+  --max: 1080px;
   --sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --display: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --display: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
 }
 
@@ -38,12 +38,14 @@ button { color: inherit; font: inherit; }
 
 .site-header {
   align-items: center;
+  background: #fff;
   display: flex;
-  height: 64px;
+  height: 68px;
   justify-content: space-between;
-  margin: 0 auto;
-  max-width: var(--max);
-  padding: 0 24px;
+  padding: 0 32px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 .brand {
@@ -78,63 +80,63 @@ button { color: inherit; font: inherit; }
   align-items: center;
   background: var(--accent);
   border: 0;
-  border-radius: 6px;
+  border-radius: 999px;
   color: #fff;
   cursor: pointer;
   display: inline-flex;
   font-size: 14px;
   font-weight: 650;
   min-height: 40px;
-  padding: 0 14px;
+  padding: 0 16px;
 }
 
 .btn:hover { background: var(--accent-hover); }
+.btn-lg { min-height: 48px; padding: 0 22px; font-size: 15px; }
 
 .home {
   margin: 0 auto;
   max-width: var(--max);
-  padding: 36px 24px 88px;
+  padding: 48px 24px 96px;
 }
 
 .hero {
-  align-items: start;
-  display: grid;
-  gap: 48px;
-  grid-template-columns: minmax(0, 1fr) minmax(260px, 380px);
-  padding: 28px 0 8px;
+  padding: 36px 0 0;
+  text-align: center;
 }
-
-.hero-copy { min-width: 0; padding-top: 12px; }
 
 .hero h1 {
   font-family: var(--display);
-  font-size: clamp(32px, 4.4vw, 46px);
-  font-weight: 600;
-  letter-spacing: -0.025em;
-  line-height: 1.12;
-  margin: 0;
-  max-width: 15ch;
+  font-size: clamp(40px, 6vw, 64px);
+  font-weight: 750;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  margin: 0 auto;
 }
 
 .hero .lede {
   color: var(--muted);
-  font-size: 17px;
-  line-height: 1.65;
-  margin: 18px 0 0;
-  max-width: 38em;
-}
-
-.hero .lede code {
-  font-family: var(--mono);
-  font-size: 0.86em;
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 18px auto 0;
+  max-width: 28em;
 }
 
 .hero-actions {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  gap: 18px;
-  margin: 26px 0 0;
+  gap: 20px;
+  justify-content: center;
+  margin: 28px 0 0;
+}
+
+.shot {
+  display: block;
+  margin: 48px auto 0;
+  max-width: min(720px, 100%);
+  height: auto;
+  border-radius: 14px;
+  box-shadow: 0 24px 64px rgba(20, 40, 80, 0.12);
 }
 
 .preview {
@@ -210,31 +212,25 @@ button { color: inherit; font: inherit; }
   padding: 7px 10px;
 }
 
-.split {
+.feats {
   display: grid;
-  gap: 12px;
-  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  grid-template-columns: repeat(4, 1fr);
   list-style: none;
-  margin: 56px 0 0;
+  margin: 0;
   padding: 0;
 }
 
-.split li {
-  background: var(--card);
-  border-radius: 10px;
-  padding: 18px 20px;
-}
-
-.split strong {
+.feats strong {
   display: block;
-  font-size: 14px;
-  margin-bottom: 4px;
+  font-size: 15px;
+  margin-bottom: 6px;
 }
 
-.split li { color: var(--muted); font-size: 14px; }
+.feats span { color: var(--muted); font-size: 14px; line-height: 1.5; }
 
 .band {
-  padding: 56px 0 0;
+  padding: 72px 0 0;
 }
 
 .band.slim { max-width: 560px; }
@@ -429,10 +425,11 @@ footer a:hover { color: var(--ink); }
 .prose tbody td:last-child { border-radius: 0 8px 8px 0; }
 
 .eyebrow {
-  color: var(--quiet);
+  color: var(--accent);
   font-size: 13px;
   font-weight: 650;
-  margin: 0 0 10px;
+  letter-spacing: 0.02em;
+  margin: 0 0 14px;
 }
 
 @media (max-width: 800px) {
@@ -445,6 +442,7 @@ footer a:hover { color: var(--ink); }
   }
   .docs-nav strong { display: none; }
   .facts { grid-template-columns: 1fr 1fr; }
-  .hero { display: block; }
+  .feats { grid-template-columns: 1fr 1fr; }
+  .site-header { padding: 0 16px; }
   footer { flex-direction: column; align-items: flex-start; gap: 8px; }
 }
