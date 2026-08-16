@@ -61,6 +61,12 @@ button { font: inherit; color: inherit; }
 .site-header nav { display: flex; align-items: center; gap: 20px; }
 .site-header nav a { color: var(--body); font-size: 14px; font-weight: 600; }
 .site-header nav a:hover, .site-header nav a[aria-current="page"] { color: var(--ink); }
+.site-header nav a.btn,
+.site-header nav a.btn:hover {
+  color: #fff;
+  background: var(--primary);
+}
+.site-header nav a.btn:hover { background: var(--primary-hover); }
 
 .btn {
   display: inline-flex;
