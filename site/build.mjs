@@ -31,14 +31,14 @@ const docs = (active, body) => `
     <article class="prose">${body}</article>
   </div>`
 
-const page = ({ title, description, path = '/', active = '', bodyClass = '', body }) => `<!doctype html>
+const page = ({ title, description, path = '/', active = '', body }) => `<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="${description}">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#080b0d">
+  <meta name="theme-color" content="#4d82f7">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="MockHeader">
   <meta property="og:title" content="${title}">
@@ -53,13 +53,14 @@ const page = ({ title, description, path = '/', active = '', bodyClass = '', bod
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/style.css">
 </head>
-<body class="${bodyClass}">
+<body>
   <header class="site-header">
-    <a class="wordmark" href="/" aria-label="MockHeader home">MockHeader</a>
+    <a class="brand" href="/" aria-label="MockHeader home"><img src="/icon.svg" alt="">MockHeader</a>
     <nav aria-label="Main navigation">
       <a ${active === 'docs' ? 'aria-current="page"' : ''} href="/docs/">Docs</a>
       <a ${active === 'privacy' ? 'aria-current="page"' : ''} href="/privacy/">Privacy</a>
       <a href="${gh}">GitHub</a>
+      <a class="btn btn-blue" href="/docs/">Install — it's free</a>
     </nav>
   </header>
   <main>${body}</main>
@@ -73,31 +74,30 @@ const page = ({ title, description, path = '/', active = '', bodyClass = '', bod
 
 const home = page({
   title: 'MockHeader — Modify HTTP headers',
-  description: 'Open-source Chrome extension to modify HTTP request and response headers. No account. No telemetry.',
-  bodyClass: 'home-theme',
+  description: 'Free open-source browser extension for editing HTTP request and response headers. No sign-up. No telemetry.',
   body: `
-    <div class="home-shell">
-    <article>
+    <div class="home">
     <section class="hero">
-      <p class="eyebrow">Open-source header editor</p>
-      <h1><span class="hero-line">Modify HTTP</span> <span class="hero-line hero-accent">headers.</span></h1>
-      <p class="lede">Set, append, or remove request and response headers in the browser. Rules stay on your machine.</p>
+      <div class="hero-mark"><img src="/icon.svg" alt=""></div>
+      <h1>Modify HTTP request and response headers</h1>
+      <p class="lede">MockHeader is a free, open-source extension for editing HTTP request and response headers. No sign-up. Install it, change a header, and test without touching your app code.</p>
       <div class="hero-actions">
-        <button class="install" data-copy="git clone ${gh}.git"><span>$</span> git clone github.com/nightsumx/MockHeader <b>Copy</b></button>
-        <a class="primary" href="/docs/">Read the docs →</a>
+        <a class="btn btn-white" href="/docs/">Install — it's free</a>
+        <a class="btn btn-ghost" href="${gh}">GitHub</a>
       </div>
-      ${code(`Request
-  X-API-Key          set     test
-  Authorization      set     Bearer …
-
-Response
-  X-Frame-Options    remove
-
-Filter
-  host               example.com`, 'profile')}
+      <p class="note">Open source. Rules stay on this device.</p>
+      <div class="preview" aria-hidden="true">
+        <div class="preview-bar"><i class="preview-dot">1</i> Profile 1 <span>+  ·  ⋮</span></div>
+        <div class="preview-body">
+          <div class="preview-row"><i class="preview-check">✓</i><b class="preview-title">Request headers</b><span></span></div>
+          <div class="preview-row"><i class="preview-check">✓</i><span class="preview-name">X-Forwarded-For</span><span class="preview-val">100.0.0.0</span></div>
+          <p class="preview-hint">Changes apply to all requests. Add a filter to limit by URL or tab.</p>
+          <div class="preview-btns"><b>+ MOD</b><b>FILTER</b></div>
+        </div>
+      </div>
     </section>
 
-    <section class="thesis">
+    <section class="band">
       <h2>What it changes</h2>
       <div class="model-lines">
         <div><span>request</span><code>set / append / remove a request header</code></div>
@@ -107,7 +107,7 @@ Filter
       </div>
     </section>
 
-    <section class="proof">
+    <section class="band">
       <h2>Local only</h2>
       <dl class="facts">
         <div><dt>0</dt><dd>servers contacted</dd></div>
@@ -118,13 +118,11 @@ Filter
       <a class="text-link" href="/privacy/">Privacy policy →</a>
     </section>
 
-    <section class="closing">
+    <section class="band">
       <h2>Load unpacked</h2>
-      ${code(`bun install
-bun run build`, 'Terminal')}
-      <p class="lede">Then Chrome → chrome://extensions → Developer mode → Load unpacked → output/chrome-mv3.</p>
+      ${code(`bun install && bun run build`, 'Terminal')}
+      <p class="lede">Chrome → chrome://extensions → Developer mode → Load unpacked → output/chrome-mv3.</p>
     </section>
-    </article>
     </div>`,
 })
 
