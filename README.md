@@ -6,7 +6,7 @@
 
 Open source. MIT. No accounts. No telemetry. Rules stay in `chrome.storage` on your machine.
 
-Site: [mockheader.org](https://mockheader.org)
+Site: [mockheader.com](https://mockheader.com)
 
 ## Install
 
@@ -45,7 +45,7 @@ bun run test
 
 ## Privacy
 
-No data leaves the browser. [Privacy policy](https://mockheader.org/privacy/).
+No data leaves the browser. [Privacy policy](https://mockheader.com/privacy/).
 
 ## License
 

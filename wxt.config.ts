@@ -8,7 +8,7 @@ export default defineConfig({
   manifest: {
     name: 'MockHeader',
     description: 'Modify HTTP request and response headers. Open source. No telemetry.',
-    homepage_url: 'https://mockheader.org',
+    homepage_url: 'https://mockheader.com',
     permissions: ['storage', 'clipboardWrite', 'declarativeNetRequest', 'declarativeNetRequestWithHostAccess', 'tabs', 'alarms'],
     host_permissions: ['<all_urls>'],
     action: {
