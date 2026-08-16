@@ -60,6 +60,7 @@ const page = ({ title, description, path = '/', active = '', body }) => `<!docty
       <a ${active === 'docs' ? 'aria-current="page"' : ''} href="/docs/">Docs</a>
       <a ${active === 'privacy' ? 'aria-current="page"' : ''} href="/privacy/">Privacy</a>
       <a href="${gh}">GitHub</a>
+      <a class="btn" href="/docs/">Install</a>
     </nav>
   </header>
   <main>${body}</main>
@@ -72,37 +73,27 @@ const page = ({ title, description, path = '/', active = '', body }) => `<!docty
 </html>`
 
 const home = page({
-  title: 'MockHeader — mock HTTP headers locally',
-  description: 'Open-source Chrome extension that mocks request and response headers on your machine. No account. No telemetry.',
+  title: 'MockHeader — change HTTP headers in the browser',
+  description: 'Free open-source Chrome extension to set, append, or remove HTTP request and response headers. No account. No telemetry.',
   body: `
     <div class="home">
     <section class="hero">
-      <div class="hero-copy">
-        <p class="eyebrow">Open source · MIT</p>
-        <h1>Mock headers on the request. Keep the app untouched.</h1>
-        <p class="lede">Set, append, or drop request and response headers in Chrome. Profiles, URL filters, and redirects compile to <code>declarativeNetRequest</code>. Nothing is uploaded.</p>
-        <div class="hero-actions">
-          <a class="btn" href="/docs/">Install from source</a>
-          <a class="text-link" href="${gh}">Source</a>
-        </div>
+      <p class="eyebrow">Open source · no telemetry</p>
+      <h1>Change the header.<br>Not the app.</h1>
+      <p class="lede">Set request and response headers from a popup. Rules stay on this device.</p>
+      <div class="hero-actions">
+        <a class="btn btn-lg" href="/docs/">Install — free</a>
+        <a class="text-link" href="${gh}">GitHub</a>
       </div>
-      <div class="preview" aria-hidden="true">
-        <div class="preview-bar"><i class="preview-dot">1</i> Profile 1</div>
-        <div class="preview-body">
-          <div class="preview-row"><i class="preview-check">✓</i><b class="preview-title">Request</b><span></span></div>
-          <div class="preview-row"><i class="preview-check">✓</i><span class="preview-name">X-MockHeader-Test</span><span class="preview-val">1</span></div>
-          <div class="preview-row"><i class="preview-check">✓</i><b class="preview-title">Response</b><span></span></div>
-          <div class="preview-row"><i class="preview-check">✓</i><span class="preview-name">X-Frame-Options</span><span class="preview-val">remove</span></div>
-        </div>
-      </div>
+      <img class="shot" src="/product.png" alt="MockHeader popup">
     </section>
 
     <section class="band">
-      <ul class="split">
-        <li><strong>Request / response</strong>Set, append, remove.</li>
-        <li><strong>Scope</strong>URL, tab, window, type, or time.</li>
-        <li><strong>Redirect</strong>Wildcard or regex.</li>
-        <li><strong>Stay local</strong>chrome.storage only.</li>
+      <ul class="feats">
+        <li><strong>Request &amp; response</strong><span>Set, append, or remove a header.</span></li>
+        <li><strong>Filter</strong><span>Limit by URL, tab, type, or time.</span></li>
+        <li><strong>Redirect</strong><span>Wildcard or regex rewrite.</span></li>
+        <li><strong>Local</strong><span>chrome.storage only. Nothing uploaded.</span></li>
       </ul>
     </section>
 
@@ -196,3 +187,4 @@ await writeFile(join(out, '_headers'), `/*
 await cp(join(root, 'style.css'), join(out, 'style.css'))
 await cp(join(root, 'site.js'), join(out, 'site.js'))
 await cp(join(root, 'icon.svg'), join(out, 'icon.svg'))
+await cp(join(root, '../store/mockheader.png'), join(out, 'product.png'))
