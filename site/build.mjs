@@ -38,7 +38,7 @@ const page = ({ title, description, path = '/', active = '', body }) => `<!docty
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="${description}">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#4d82f7">
+  <meta name="theme-color" content="#f4f1ec">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="MockHeader">
   <meta property="og:title" content="${title}">
@@ -60,7 +60,6 @@ const page = ({ title, description, path = '/', active = '', body }) => `<!docty
       <a ${active === 'docs' ? 'aria-current="page"' : ''} href="/docs/">Docs</a>
       <a ${active === 'privacy' ? 'aria-current="page"' : ''} href="/privacy/">Privacy</a>
       <a href="${gh}">GitHub</a>
-      <a class="btn btn-blue" href="/docs/">Install — it's free</a>
     </nav>
   </header>
   <main>${body}</main>
@@ -73,55 +72,44 @@ const page = ({ title, description, path = '/', active = '', body }) => `<!docty
 </html>`
 
 const home = page({
-  title: 'MockHeader — Modify HTTP headers',
-  description: 'Free open-source browser extension for editing HTTP request and response headers. No sign-up. No telemetry.',
+  title: 'MockHeader — mock HTTP headers locally',
+  description: 'Open-source Chrome extension that mocks request and response headers on your machine. No account. No telemetry.',
   body: `
     <div class="home">
     <section class="hero">
-      <div class="hero-mark"><img src="/icon.svg" alt=""></div>
-      <h1>Modify HTTP request and response headers</h1>
-      <p class="lede">MockHeader is a free, open-source extension for editing HTTP request and response headers. No sign-up. Install it, change a header, and test without touching your app code.</p>
-      <div class="hero-actions">
-        <a class="btn btn-white" href="/docs/">Install — it's free</a>
-        <a class="btn btn-ghost" href="${gh}">GitHub</a>
+      <div class="hero-copy">
+        <p class="eyebrow">Open source · MIT</p>
+        <h1>Mock headers on the request. Keep the app untouched.</h1>
+        <p class="lede">Set, append, or drop request and response headers in Chrome. Profiles, URL filters, and redirects compile to <code>declarativeNetRequest</code>. Nothing is uploaded.</p>
+        <div class="hero-actions">
+          <a class="btn" href="/docs/">Install from source</a>
+          <a class="text-link" href="${gh}">Source</a>
+        </div>
       </div>
-      <p class="note">Open source. Rules stay on this device.</p>
       <div class="preview" aria-hidden="true">
-        <div class="preview-bar"><i class="preview-dot">1</i> Profile 1 <span>+  ·  ⋮</span></div>
+        <div class="preview-bar"><i class="preview-dot">1</i> Profile 1</div>
         <div class="preview-body">
-          <div class="preview-row"><i class="preview-check">✓</i><b class="preview-title">Request headers</b><span></span></div>
-          <div class="preview-row"><i class="preview-check">✓</i><span class="preview-name">X-Forwarded-For</span><span class="preview-val">100.0.0.0</span></div>
-          <p class="preview-hint">Changes apply to all requests. Add a filter to limit by URL or tab.</p>
-          <div class="preview-btns"><b>+ MOD</b><b>FILTER</b></div>
+          <div class="preview-row"><i class="preview-check">✓</i><b class="preview-title">Request</b><span></span></div>
+          <div class="preview-row"><i class="preview-check">✓</i><span class="preview-name">X-MockHeader-Test</span><span class="preview-val">1</span></div>
+          <div class="preview-row"><i class="preview-check">✓</i><b class="preview-title">Response</b><span></span></div>
+          <div class="preview-row"><i class="preview-check">✓</i><span class="preview-name">X-Frame-Options</span><span class="preview-val">remove</span></div>
         </div>
       </div>
     </section>
 
     <section class="band">
-      <h2>What it changes</h2>
-      <div class="model-lines">
-        <div><span>request</span><code>set / append / remove a request header</code></div>
-        <div><span>response</span><code>same operations on the response</code></div>
-        <div><span>filter</span><code>URL, tab, window, type, or time</code></div>
-        <div><span>redirect</span><code>wildcard or regex rewrite</code></div>
-      </div>
+      <ul class="split">
+        <li><strong>Request / response</strong>Set, append, remove.</li>
+        <li><strong>Scope</strong>URL, tab, window, type, or time.</li>
+        <li><strong>Redirect</strong>Wildcard or regex.</li>
+        <li><strong>Stay local</strong>chrome.storage only.</li>
+      </ul>
     </section>
 
-    <section class="band">
-      <h2>Local only</h2>
-      <dl class="facts">
-        <div><dt>0</dt><dd>servers contacted</dd></div>
-        <div><dt>0</dt><dd>accounts or analytics</dd></div>
-        <div><dt>MIT</dt><dd>fork it</dd></div>
-        <div><dt>DNR</dt><dd>Chrome applies the rules</dd></div>
-      </dl>
-      <a class="text-link" href="/privacy/">Privacy policy →</a>
-    </section>
-
-    <section class="band">
+    <section class="band slim">
       <h2>Load unpacked</h2>
       ${code(`bun install && bun run build`, 'Terminal')}
-      <p class="lede">Chrome → chrome://extensions → Developer mode → Load unpacked → output/chrome-mv3.</p>
+      <p class="lede">chrome://extensions → Developer mode → Load unpacked → <code>output/chrome-mv3</code>.</p>
     </section>
     </div>`,
 })
