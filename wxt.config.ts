@@ -6,13 +6,13 @@ export default defineConfig({
   srcDir: 'src',
   outDir: 'output',
   manifest: {
-    name: 'HeaderMod',
+    name: 'MockHeader',
     description: 'Modify HTTP request and response headers. Open source. No telemetry.',
-    homepage_url: 'https://headermod.com',
+    homepage_url: 'https://mockheader.org',
     permissions: ['storage', 'clipboardWrite', 'declarativeNetRequest', 'declarativeNetRequestWithHostAccess', 'tabs', 'alarms'],
     host_permissions: ['<all_urls>'],
     action: {
-      default_title: 'HeaderMod',
+      default_title: 'MockHeader',
     },
     commands: {
       'toggle-pause': {
