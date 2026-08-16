@@ -1,14 +1,14 @@
 :root {
   color-scheme: light;
-  --paper: #f4f1ec;
-  --ink: #2a241f;
-  --muted: #6a625a;
-  --quiet: #948c84;
-  --accent: #6b1c2a;
-  --accent-hover: #561620;
-  --soft: #ebe4db;
-  --card: #fffaf4;
-  --line: #e4dcd2;
+  --paper: #f3f5f8;
+  --ink: #1a1d22;
+  --muted: #5a6270;
+  --quiet: #8b93a0;
+  --accent: #3370ff;
+  --accent-hover: #245bdb;
+  --soft: #e8edf4;
+  --card: #fff;
+  --line: #dce3ec;
   --max: 1040px;
   --sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --display: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
@@ -32,7 +32,7 @@ a { color: inherit; text-decoration: none; }
 button { color: inherit; font: inherit; }
 
 :focus-visible {
-  outline: 3px solid rgba(107, 28, 42, 0.3);
+  outline: 3px solid rgba(51, 112, 255, 0.35);
   outline-offset: 3px;
 }
 
@@ -79,7 +79,7 @@ button { color: inherit; font: inherit; }
   background: var(--accent);
   border: 0;
   border-radius: 6px;
-  color: #fffaf4;
+  color: #fff;
   cursor: pointer;
   display: inline-flex;
   font-size: 14px;
@@ -140,7 +140,7 @@ button { color: inherit; font: inherit; }
 .preview {
   background: var(--card);
   border-radius: 10px;
-  box-shadow: 0 1px 0 var(--line), 0 18px 40px rgba(80, 50, 20, 0.08);
+  box-shadow: 0 1px 0 var(--line), 0 16px 36px rgba(20, 30, 50, 0.08);
   overflow: hidden;
 }
 
