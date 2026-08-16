@@ -55,13 +55,15 @@ const page = ({ title, description, path = '/', active = '', body }) => `<!docty
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="/" aria-label="MockHeader home"><img src="/icon.svg" alt="">MockHeader</a>
-    <nav aria-label="Main navigation">
-      <a ${active === 'docs' ? 'aria-current="page"' : ''} href="/docs/">Docs</a>
-      <a ${active === 'privacy' ? 'aria-current="page"' : ''} href="/privacy/">Privacy</a>
-      <a href="${gh}">GitHub</a>
-      <a class="btn" href="/docs/">Install</a>
-    </nav>
+    <div class="wrap">
+      <a class="brand" href="/" aria-label="MockHeader home"><img src="/icon.svg" alt="">MockHeader</a>
+      <nav aria-label="Main navigation">
+        <a ${active === 'docs' ? 'aria-current="page"' : ''} href="/docs/">Docs</a>
+        <a ${active === 'privacy' ? 'aria-current="page"' : ''} href="/privacy/">Privacy</a>
+        <a href="${gh}">GitHub</a>
+        <a class="btn btn-sm" href="/docs/">Install — it's free</a>
+      </nav>
+    </div>
   </header>
   <main>${body}</main>
   <footer>
@@ -73,36 +75,124 @@ const page = ({ title, description, path = '/', active = '', body }) => `<!docty
 </html>`
 
 const home = page({
-  title: 'MockHeader — change HTTP headers in the browser',
-  description: 'Free open-source Chrome extension to set, append, or remove HTTP request and response headers. No account. No telemetry.',
+  title: 'MockHeader — Modify HTTP headers',
+  description: 'Free open-source browser extension for editing HTTP request and response headers. No sign-up. No telemetry.',
   body: `
-    <div class="home">
-    <section class="hero">
-      <p class="eyebrow">Open source · no telemetry</p>
-      <h1>Change the header.<br>Not the app.</h1>
-      <p class="lede">Set request and response headers from a popup. Rules stay on this device.</p>
-      <div class="hero-actions">
-        <a class="btn btn-lg" href="/docs/">Install — free</a>
-        <a class="text-link" href="${gh}">GitHub</a>
+    <div class="hero-wrap">
+      <section class="hero">
+        <div class="hero-logo"><img src="/icon.svg" alt=""></div>
+        <h1>Modify HTTP request and response headers</h1>
+        <p class="lede">MockHeader is a free, open-source extension for editing HTTP request and response headers. No sign-up. Install it, change a header, and test without touching your app code.</p>
+        <div class="hero-actions"><a class="btn btn-light" href="/docs/">Install — it's free</a></div>
+        <p class="note">Open source. Rules stay on this device.</p>
+        <img class="hero-shot" src="/product.png" alt="MockHeader popup">
+      </section>
+    </div>
+
+    <section class="section">
+      <div class="wash">
+        <h2>How it works</h2>
+        <ol class="steps">
+          <li><i class="ico">1</i><strong>Install the extension</strong><span>Load MockHeader unpacked from GitHub. Free. No account.</span></li>
+          <li><i class="ico">2</i><strong>Add or modify headers</strong><span>Open the popup and set request headers, response headers, cookies, and redirects.</span></li>
+          <li><i class="ico">3</i><strong>Toggle and debug</strong><span>Turn rules on or off. URL, tab, and resource filters keep changes limited to what you want.</span></li>
+        </ol>
       </div>
-      <img class="shot" src="/product.png" alt="MockHeader popup">
     </section>
 
-    <section class="band">
-      <ul class="feats">
-        <li><strong>Request &amp; response</strong><span>Set, append, or remove a header.</span></li>
-        <li><strong>Filter</strong><span>Limit by URL, tab, type, or time.</span></li>
-        <li><strong>Redirect</strong><span>Wildcard or regex rewrite.</span></li>
-        <li><strong>Local</strong><span>chrome.storage only. Nothing uploaded.</span></li>
-      </ul>
+    <section class="section">
+      <h2>Features</h2>
+      <div class="features">
+        <article class="feat">
+          <div class="feat-copy">
+            <h3>Edit request and response headers</h3>
+            <p>Set, append, or remove a header from the popup. Authorization, feature flags, or X-Forwarded-For — without changing app code.</p>
+          </div>
+          <div class="feat-media">
+            <div class="demo">
+              <div class="demo-bar">Default</div>
+              <div class="demo-row"><b>Request headers</b></div>
+              <div class="demo-row"><b class="typed">Authorization</b><span class="val">Bearer test<span class="caret"></span></span></div>
+            </div>
+          </div>
+        </article>
+        <article class="feat reverse">
+          <div class="feat-copy">
+            <h3>Toggle rules with one click</h3>
+            <p>Enable or disable modifications while you test. Same page, feature on in one pass and off in the next.</p>
+          </div>
+          <div class="feat-media">
+            <div class="demo">
+              <div class="demo-bar">Default</div>
+              <div class="demo-row"><b>X-MockHeader-Test</b><i class="tog"></i></div>
+              <div class="demo-row"><b>X-Frame-Options</b><i class="tog on"></i></div>
+            </div>
+          </div>
+        </article>
+        <article class="feat">
+          <div class="feat-copy">
+            <h3>Filter by URL, tab, or resource</h3>
+            <p>Apply rules only on matching URLs, tabs, windows, or resource types so tokens do not leak to other sites.</p>
+          </div>
+          <div class="feat-media">
+            <div class="demo">
+              <div class="demo-bar">Default</div>
+              <div class="demo-row"><b>Include</b><span class="chip">example.com</span></div>
+              <div class="demo-row"><span class="val">Page · Host · Domain</span></div>
+            </div>
+          </div>
+        </article>
+        <article class="feat reverse">
+          <div class="feat-copy">
+            <h3>Profiles and redirects</h3>
+            <p>Keep separate profiles for projects. Wildcard or regex redirects. Export and import when you need to share a setup.</p>
+          </div>
+          <div class="feat-media">
+            <div class="demo">
+              <div class="demo-bar">Profile 2</div>
+              <div class="demo-row"><b>from</b><span class="val">*://httpbin.org/get</span></div>
+              <div class="demo-row"><b>to</b><span class="val">https://example.com/</span></div>
+            </div>
+          </div>
+        </article>
+      </div>
     </section>
 
-    <section class="band slim">
+    <section class="section">
+      <div class="cta">
+        <h2>Install MockHeader</h2>
+        <p>Free. Open source. No sign-up.</p>
+        <a class="btn btn-light" href="/docs/">Install — it's free</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>FAQs</h2>
+      <div class="faq">
+        <details open>
+          <summary>How do I modify a request header?</summary>
+          <p>Open the popup. Enter the header name (for example Authorization) and its value, then leave the rule enabled. Matching requests pick it up right away.</p>
+        </details>
+        <details>
+          <summary>Can I limit modifications to certain URLs or tabs?</summary>
+          <p>Yes. URL, tab, window, and resource type filters limit where rules apply, which helps keep tokens off sites you did not mean to touch.</p>
+        </details>
+        <details>
+          <summary>Is MockHeader free? Which browsers are supported?</summary>
+          <p>Yes. MockHeader is free and open source. There is no account. Chrome is supported today; load unpacked from GitHub until the store listing is live.</p>
+        </details>
+        <details>
+          <summary>Does MockHeader collect or sell my data?</summary>
+          <p>No. Profiles stay in chrome.storage on this device. See the <a href="/privacy/">Privacy Policy</a>.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="section" style="max-width:560px;margin:48px auto 0;padding-bottom:24px">
       <h2>Load unpacked</h2>
       ${code(`bun install && bun run build`, 'Terminal')}
-      <p class="lede">chrome://extensions → Developer mode → Load unpacked → <code>output/chrome-mv3</code>.</p>
-    </section>
-    </div>`,
+      <p class="lede" style="color:var(--body);text-align:center">chrome://extensions → Developer mode → Load unpacked → <code>output/chrome-mv3</code>.</p>
+    </section>`,
 })
 
 const start = page({
