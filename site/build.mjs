@@ -61,7 +61,7 @@ const page = ({ title, description, path = '/', active = '', body }) => `<!docty
         <a ${active === 'docs' ? 'aria-current="page"' : ''} href="/docs/">Docs</a>
         <a ${active === 'privacy' ? 'aria-current="page"' : ''} href="/privacy/">Privacy</a>
         <a href="${gh}">GitHub</a>
-        <a class="btn btn-sm" href="/docs/">Install — it's free</a>
+        <a class="btn btn-sm" href="/docs/"><span class="wide">Install — it's free</span><span class="narrow">Install</span></a>
       </nav>
     </div>
   </header>
@@ -93,9 +93,9 @@ const home = page({
       <div class="wash">
         <h2>How it works</h2>
         <ol class="steps">
-          <li><i class="ico">1</i><strong>Install the extension</strong><span>Load MockHeader unpacked from GitHub. Free. No account.</span></li>
-          <li><i class="ico">2</i><strong>Add or modify headers</strong><span>Open the popup and set request headers, response headers, cookies, and redirects.</span></li>
-          <li><i class="ico">3</i><strong>Toggle and debug</strong><span>Turn rules on or off. URL, tab, and resource filters keep changes limited to what you want.</span></li>
+          <li><span class="ico">1</span><strong>Install the extension</strong><span>Load MockHeader unpacked from GitHub. Free. No account.</span></li>
+          <li><span class="ico">2</span><strong>Add or modify headers</strong><span>Open the popup and set request headers, response headers, cookies, and redirects.</span></li>
+          <li><span class="ico">3</span><strong>Toggle and debug</strong><span>Turn rules on or off. URL, tab, and resource filters keep changes limited to what you want.</span></li>
         </ol>
       </div>
     </section>
@@ -112,7 +112,7 @@ const home = page({
             <div class="demo">
               <div class="demo-bar">Default</div>
               <div class="demo-row"><b>Request headers</b></div>
-              <div class="demo-row"><b class="typed">Authorization</b><span class="val">Bearer test<span class="caret"></span></span></div>
+              <div class="demo-row"><b>Authorization</b><span class="val">Bearer test</span></div>
             </div>
           </div>
         </article>
