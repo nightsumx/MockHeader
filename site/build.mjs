@@ -7,6 +7,10 @@ const out = join(root, 'dist')
 const site = 'https://mockheader.com'
 const gh = 'https://github.com/nightsumx/MockHeader'
 
+const icoChrome = `<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#fff"/><circle cx="12" cy="12" r="3.6" fill="#1a73e8"/><path fill="#ea4335" d="M12 2a10 10 0 0 0-8.7 5h6.2L12 12z"/><path fill="#fbbc04" d="M3.3 7A10 10 0 0 0 12 22l3.5-6H12z"/><path fill="#34a853" d="M12 22a10 10 0 0 0 8.7-15H12l3.5 6z"/></svg>`
+const icoFirefox = `<svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#ff7139"/><path fill="#ffd567" d="M7 14c1 3 4 5 7 4 4-1 6-5 5-8-2 3-6 4-9 2z"/><path fill="#fff" d="M9.5 10.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg>`
+const icoEdge = `<svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#36c"/><path fill="#5ce1ff" d="M6 13c1 4 5 7 9 6 3 0 5-2 6-5-4 2-9 1-12-2z"/><path fill="#fff" d="M7 11c2-4 8-5 11-1-3-1-7 0-9 3z"/></svg>`
+
 const escapeHtml = value => String(value)
   .replaceAll('&', '&amp;')
   .replaceAll('<', '&lt;')
@@ -57,18 +61,13 @@ const page = ({ title, description, path = '/', active = '', body }) => `<!docty
   <header class="site-header">
     <div class="wrap">
       <a class="brand" href="/" aria-label="MockHeader home"><img src="/icon.svg" alt="">MockHeader</a>
-      <nav aria-label="Main navigation">
-        <a ${active === 'docs' ? 'aria-current="page"' : ''} href="/docs/">Docs</a>
-        <a ${active === 'privacy' ? 'aria-current="page"' : ''} href="/privacy/">Privacy</a>
-        <a href="${gh}">GitHub</a>
-        <a class="btn btn-sm" href="/docs/"><span class="wide">Install — it's free</span><span class="narrow">Install</span></a>
-      </nav>
+      <a class="add-chrome" href="/docs/">${icoChrome} Add to Chrome — It's free</a>
     </div>
   </header>
   <main>${body}</main>
   <footer>
     <span>MockHeader · MIT · no telemetry</span>
-    <a href="${gh}">Source on GitHub</a>
+    <span class="foot-links"><a href="/docs/">Docs</a><a href="/privacy/">Privacy</a><a href="${gh}">GitHub</a></span>
   </footer>
   <script src="/site.js" defer></script>
 </body>
@@ -81,10 +80,15 @@ const home = page({
     <div class="hero-wrap">
       <section class="hero">
         <div class="hero-logo"><img src="/icon.svg" alt=""></div>
-        <h1>Modify HTTP request and response headers</h1>
+        <h1>Modify HTTP request and<br>response headers</h1>
         <p class="lede">MockHeader is a free, open-source extension for editing HTTP request and response headers. No sign-up. Install it, change a header, and test without touching your app code.</p>
-        <div class="hero-actions"><a class="btn btn-light" href="/docs/">Install — it's free</a></div>
-        <p class="note">Open source. Rules stay on this device.</p>
+        <div class="stores">
+          <a class="store-main" href="/docs/">${icoChrome} Add to Chrome — It's free</a>
+          <a class="store-ico" href="${gh}" title="Firefox">${icoFirefox}</a>
+          <a class="store-ico" href="${gh}" title="Edge">${icoEdge}</a>
+        </div>
+        <p class="note">Open source. No sign-up.</p>
+        <p class="avail">Available on: ${icoChrome} ${icoEdge} ${icoFirefox}</p>
         <img class="hero-shot" src="/product.png" alt="MockHeader popup">
       </section>
     </div>
@@ -162,7 +166,7 @@ const home = page({
       <div class="cta">
         <h2>Install MockHeader</h2>
         <p>Free. Open source. No sign-up.</p>
-        <a class="btn btn-light" href="/docs/">Install — it's free</a>
+        <a class="btn btn-light" href="/docs/">${icoChrome} Add to Chrome — It's free</a>
       </div>
     </section>
 
