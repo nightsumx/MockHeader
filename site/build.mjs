@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url'
 
 const root = dirname(fileURLToPath(import.meta.url))
 const out = join(root, 'dist')
-const site = 'https://mockheader.org'
+const site = 'https://mockheader.com'
 const gh = 'https://github.com/nightsumx/MockHeader'
 
 const escapeHtml = value => String(value)

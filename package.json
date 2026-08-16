@@ -4,7 +4,7 @@
   "version": "0.3.1",
   "description": "Modify HTTP request and response headers.",
   "license": "MIT",
-  "homepage": "https://mockheader.org",
+  "homepage": "https://mockheader.com",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nightsumx/MockHeader.git"
