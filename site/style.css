@@ -1,13 +1,13 @@
 :root {
   color-scheme: light;
-  --paper: #f3f5f8;
+  --paper: #fff;
   --ink: #1a1d22;
   --muted: #5a6270;
   --quiet: #8b93a0;
   --accent: #3370ff;
   --accent-hover: #245bdb;
   --soft: #e8edf4;
-  --card: #fff;
+  --card: #f6f7f9;
   --line: #dce3ec;
   --max: 1040px;
   --sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
