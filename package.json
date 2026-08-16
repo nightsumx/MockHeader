@@ -1,0 +1,56 @@
+{
+  "name": "headermod",
+  "private": true,
+  "version": "0.3.1",
+  "description": "Modify HTTP request and response headers.",
+  "license": "MIT",
+  "homepage": "https://headermod.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nightsumx/headermod.git"
+  },
+  "bugs": "https://github.com/nightsumx/headermod/issues",
+  "type": "module",
+  "scripts": {
+    "dev": "wxt",
+    "dev:firefox": "wxt -b firefox",
+    "build": "wxt build",
+    "zip": "wxt zip",
+    "typecheck": "tsc --noEmit",
+    "postinstall": "wxt prepare",
+    "test": "vitest run --exclude __tests__/domain/**",
+    "test:watch": "vitest",
+    "test:domain": "vitest run __tests__/domain",
+    "icon": "bun scripts/icon.ts",
+    "site:build": "node site/build.mjs"
+  },
+  "dependencies": {
+    "@radix-ui/react-label": "^2.1.15",
+    "@radix-ui/react-radio-group": "^1.4.7",
+    "@radix-ui/react-slot": "^1.3.3",
+    "@radix-ui/react-switch": "^1.3.7",
+    "@radix-ui/react-tooltip": "^1.2.16",
+    "class-variance-authority": "^0.7.1",
+    "clipboard-copy": "^4.0.1",
+    "clsx": "^2.1.1",
+    "cmdk": "^1.1.1",
+    "lucide-react": "^1.31.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "tailwind-merge": "^3.6.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/jsdom": "^21.1.7",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "@vitejs/plugin-react": "4.3.4",
+    "jsdom": "^26.0.0",
+    "tailwindcss": "^4.3.3",
+    "typescript": "~5.7.2",
+    "vite": "^6.0.0",
+    "vitest": "^3.1.2",
+    "wxt": "^0.21.4"
+  }
+}

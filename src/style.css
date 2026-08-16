@@ -1,0 +1,84 @@
+@import 'tailwindcss';
+@import '../../markloom/src/view/theme.css';
+
+@theme {
+  --color-icon-color: var(--text-b);
+  --color-color-a: var(--text-a);
+  --color-bg-hover: var(--bg-hover);
+  --color-bg-active: var(--bg-active);
+}
+
+html, body, #root {
+  margin: 0;
+  width: 560px;
+  min-height: 380px;
+  background: var(--bg-page);
+  color: var(--text-a);
+  color-scheme: light;
+  font-family: var(--markloom-font);
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+html, .root {
+  --accent: var(--markloom-accent);
+  --danger: #f54a45;
+  --line: var(--markloom-line);
+  --bar: #6b1c2a;
+  --bar-ink: #fff;
+  --field: #f0f0f0;
+}
+
+html.dark, .root.dark, .root[data-theme='dark'] {
+  --danger: #ff8a85;
+  --bar: #4a121c;
+  --field: #2a2a2a;
+}
+
+.field {
+  background: var(--field);
+  border: 0;
+  border-radius: 6px;
+  padding: 0 8px;
+}
+
+.hit {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  isolation: isolate;
+}
+.hit::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: currentColor;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 120ms ease;
+}
+.hit:hover::after {
+  opacity: 0.1;
+}
+.hit:active::after {
+  opacity: 0.18;
+}
+.hit:disabled {
+  opacity: 0.35;
+}
+.hit:disabled::after {
+  opacity: 0;
+}
+
+.hit.menu {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 8px 14px;
+  text-align: left;
+}
