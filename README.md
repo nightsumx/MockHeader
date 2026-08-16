@@ -1,20 +1,20 @@
-# HeaderMod
+# MockHeader
 
-[![CI](https://github.com/nightsumx/headermod/actions/workflows/ci.yml/badge.svg)](https://github.com/nightsumx/headermod/actions/workflows/ci.yml)
+[![CI](https://github.com/nightsumx/MockHeader/actions/workflows/ci.yml/badge.svg)](https://github.com/nightsumx/MockHeader/actions/workflows/ci.yml)
 
 **Modify HTTP request and response headers.**
 
 Open source. MIT. No accounts. No telemetry. Rules stay in `chrome.storage` on your machine.
 
-Site: [headermod.com](https://headermod.com)
+Site: [mockheader.org](https://mockheader.org)
 
 ## Install
 
 Chrome Web Store listing is in progress. Until then:
 
 ```sh
-git clone https://github.com/nightsumx/headermod.git
-cd headermod
+git clone https://github.com/nightsumx/MockHeader.git
+cd MockHeader
 bun install
 bun run build
 ```
@@ -45,7 +45,7 @@ bun run test
 
 ## Privacy
 
-No data leaves the browser. [Privacy policy](https://headermod.com/privacy/).
+No data leaves the browser. [Privacy policy](https://mockheader.org/privacy/).
 
 ## License
 

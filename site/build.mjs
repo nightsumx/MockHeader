@@ -4,8 +4,8 @@ import { fileURLToPath } from 'node:url'
 
 const root = dirname(fileURLToPath(import.meta.url))
 const out = join(root, 'dist')
-const site = 'https://headermod.com'
-const gh = 'https://github.com/nightsumx/headermod'
+const site = 'https://mockheader.org'
+const gh = 'https://github.com/nightsumx/MockHeader'
 
 const escapeHtml = value => String(value)
   .replaceAll('&', '&amp;')
@@ -40,7 +40,7 @@ const page = ({ title, description, path = '/', active = '', bodyClass = '', bod
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#080b0d">
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="HeaderMod">
+  <meta property="og:site_name" content="MockHeader">
   <meta property="og:title" content="${title}">
   <meta property="og:description" content="${description}">
   <meta property="og:url" content="${site}${path}">
@@ -55,7 +55,7 @@ const page = ({ title, description, path = '/', active = '', bodyClass = '', bod
 </head>
 <body class="${bodyClass}">
   <header class="site-header">
-    <a class="wordmark" href="/" aria-label="HeaderMod home">HeaderMod</a>
+    <a class="wordmark" href="/" aria-label="MockHeader home">MockHeader</a>
     <nav aria-label="Main navigation">
       <a ${active === 'docs' ? 'aria-current="page"' : ''} href="/docs/">Docs</a>
       <a ${active === 'privacy' ? 'aria-current="page"' : ''} href="/privacy/">Privacy</a>
@@ -64,7 +64,7 @@ const page = ({ title, description, path = '/', active = '', bodyClass = '', bod
   </header>
   <main>${body}</main>
   <footer>
-    <span>HeaderMod · MIT · no telemetry</span>
+    <span>MockHeader · MIT · no telemetry</span>
     <a href="${gh}">Source on GitHub</a>
   </footer>
   <script src="/site.js" defer></script>
@@ -72,7 +72,7 @@ const page = ({ title, description, path = '/', active = '', bodyClass = '', bod
 </html>`
 
 const home = page({
-  title: 'HeaderMod — Modify HTTP headers',
+  title: 'MockHeader — Modify HTTP headers',
   description: 'Open-source Chrome extension to modify HTTP request and response headers. No account. No telemetry.',
   bodyClass: 'home-theme',
   body: `
@@ -83,7 +83,7 @@ const home = page({
       <h1><span class="hero-line">Modify HTTP</span> <span class="hero-line hero-accent">headers.</span></h1>
       <p class="lede">Set, append, or remove request and response headers in the browser. Rules stay on your machine.</p>
       <div class="hero-actions">
-        <button class="install" data-copy="git clone ${gh}.git"><span>$</span> git clone github.com/nightsumx/headermod <b>Copy</b></button>
+        <button class="install" data-copy="git clone ${gh}.git"><span>$</span> git clone github.com/nightsumx/MockHeader <b>Copy</b></button>
         <a class="primary" href="/docs/">Read the docs →</a>
       </div>
       ${code(`Request
@@ -129,23 +129,23 @@ bun run build`, 'Terminal')}
 })
 
 const start = page({
-  title: 'Docs — HeaderMod',
-  description: 'Install HeaderMod and add request headers, response headers, filters, and redirects.',
+  title: 'Docs — MockHeader',
+  description: 'Install MockHeader and add request headers, response headers, filters, and redirects.',
   path: '/docs/',
   active: 'docs',
   body: docs('docs', `
     <p class="eyebrow">Documentation</p>
     <h1>Start</h1>
-    <p class="intro">HeaderMod compiles your profile into Chrome <code>declarativeNetRequest</code> rules. It does not proxy traffic.</p>
+    <p class="intro">MockHeader compiles your profile into Chrome <code>declarativeNetRequest</code> rules. It does not proxy traffic.</p>
     <h2>Install from source</h2>
     ${code(`git clone ${gh}.git
-cd headermod
+cd MockHeader
 bun install
 bun run build`, 'Terminal')}
     <p>Open <code>chrome://extensions</code>, turn on Developer mode, Load unpacked, pick <code>output/chrome-mv3</code>.</p>
     <h2>Add a header</h2>
     <p>Open the popup. Request headers are the first block. Type a name and a value. Chrome applies <code>set</code> unless you switch the row to append or remove.</p>
-    <p>Use a custom name such as <code>X-HeaderMod-Test</code> when you want to see it on <a href="https://httpbin.org/headers">httpbin.org/headers</a>. Chrome silently drops some names (<code>Host</code>, <code>Connection</code>).</p>
+    <p>Use a custom name such as <code>X-MockHeader-Test</code> when you want to see it on <a href="https://httpbin.org/headers">httpbin.org/headers</a>. Chrome silently drops some names (<code>Host</code>, <code>Connection</code>).</p>
     <h2>Limit where it runs</h2>
     <p>Without a filter, a live profile matches every request. Add a URL filter (this page / this host / this domain) or a tab / window / resource / time filter.</p>
     <h2>Redirect</h2>
@@ -160,14 +160,14 @@ bun run zip`, 'Terminal')}
 })
 
 const privacy = page({
-  title: 'Privacy — HeaderMod',
-  description: 'HeaderMod does not collect, transmit, or sell data.',
+  title: 'Privacy — MockHeader',
+  description: 'MockHeader does not collect, transmit, or sell data.',
   path: '/privacy/',
   active: 'privacy',
   body: docs('privacy', `
     <p class="eyebrow">Privacy</p>
     <h1>Privacy policy</h1>
-    <p class="intro">HeaderMod does not collect personal data. There is no account, no analytics, and no backend.</p>
+    <p class="intro">MockHeader does not collect personal data. There is no account, no analytics, and no backend.</p>
     <h2>What is stored</h2>
     <p>Profiles, theme, and language live in <code>chrome.storage.local</code> on this device. Export writes a file you chose. Copy uses the clipboard only when you click Export.</p>
     <h2>What the permissions are for</h2>
@@ -181,7 +181,7 @@ const privacy = page({
     </tbody></table>
     <p>The extension never uploads browsing history, headers, or profile contents.</p>
     <h2>Source</h2>
-    <p>The store package is built from <a href="${gh}">github.com/nightsumx/headermod</a>. MIT License.</p>
+    <p>The store package is built from <a href="${gh}">github.com/nightsumx/MockHeader</a>. MIT License.</p>
     <h2>Contact</h2>
     <p>Open an issue on the GitHub repository.</p>
   `),
